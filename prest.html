@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Préstamos 4K - Soluciones Financieras en República Dominicana</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#00C853',
+                        accent: '#FFD700',
+                        charcoal: '#1C1C1E',
+                        light: '#FAFAFA',
+                        glass: 'rgba(255, 255, 255, 0.05)',
+                    },
+                    backdropBlur: {
+                        xs: '2px',
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'pulse-slow': 'pulse 3s infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/css">
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #FAFAFA;
+            color: #1C1C1E;
+            transition: background-color 0.3s ease;
+        }
+        
+        .dark body {
+            background-color: #1C1C1E;
+            color: #FAFAFA;
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .dark .glass-card {
+            background: rgba(28, 28, 30, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(0,200,83,0.8) 0%, rgba(255,215,0,0.6) 100%);
+        }
+        
+        .dark .hero-gradient {
+            background: linear-gradient(135deg, rgba(0,200,83,0.6) 0%, rgba(255,215,0,0.4) 100%);
+        }
+        
+        .glow-border {
+            box-shadow: 0 0 15px rgba(0, 200, 83, 0.5);
+        }
+        
+        .hover-glow:hover {
+            box-shadow: 0 0 20px rgba(0, 200, 83, 0.7);
+        }
+        
+        .range-thumb::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #00C853;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 200, 83, 0.7);
+        }
+        
+        .range-thumb::-moz-range-thumb {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #00C853;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 200, 83, 0.7);
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- Dark Mode Toggle -->
+    <button id="theme-toggle" class="fixed z-50 bottom-6 left-6 bg-white dark:bg-charcoal w-12 h-12 rounded-full shadow-lg flex items-center justify-center hover:bg-accent hover:text-white transition-all duration-300">
+        <i class="fas fa-moon dark:hidden"></i>
+        <i class="fas fa-sun hidden dark:block"></i>
+    </button>
+    
+    <!-- Floating Action Button -->
+    <div class="fixed z-50 bottom-6 right-6">
+        <button id="fab-button" class="bg-primary text-white w-14 h-14 rounded-full shadow-xl hover:bg-accent hover:scale-110 transition-all duration-300 flex items-center justify-center">
+            <i class="fas fa-pen text-xl"></i>
+        </button>
+    </div>
+    
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-40 backdrop-blur-md bg-white/80 dark:bg-charcoal/80 border-b border-white/20 dark:border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <span class="text-2xl font-bold bg-primary text-white px-3 py-1 rounded-lg">4K</span>
+                        <span class="ml-2 text-xl font-bold dark:text-white">Préstamos</span>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#soluciones" class="text-gray-800 dark:text-gray-200 hover:text-primary dark:hover:text-accent transition-colors duration-300">Soluciones</a>
+                    <a href="#beneficios" class="text-gray-800 dark:text-gray-200 hover:text-primary dark:hover:text-accent transition-colors duration-300">Por qué elegirnos</a>
+                    <a href="#testimonios" class="text-gray-800 dark:text-gray-200 hover:text-primary dark:hover:text-accent transition-colors duration-300">Testimonios</a>
+                    <a href="#contacto" class="text-gray-800 dark:text-gray-200 hover:text-primary dark:hover:text-accent transition-colors duration-300">Contacto</a>
+                </div>
+                <div class="flex items-center">
+                    <button class="bg-primary text-white px-6 py-2 rounded-lg hover:bg-accent transition-colors duration-300 hidden md:block">
+                        Solicitar Préstamo
+                    </button>
+                    <button class="md:hidden text-gray-800 dark:text-gray-200">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <video class="absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline>
+            <source src="fin1.mp4" type="video/mp4">
+        </video>
+        <div class="absolute inset-0 bg-black/40 dark:bg-black/60"></div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="glass-card rounded-3xl p-8 md:p-12 max-w-2xl mx-auto backdrop-blur-sm animate-fade-in">
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 animate-slide-up">
+                    Tu Dinero, <span class="text-accent">Hoy Mismo</span>
+                </h1>
+                <p class="text-lg md:text-xl text-white/90 mb-8 animate-fade-in">
+                    Soluciones financieras rápidas, flexibles y personalizadas en República Dominicana. Obtén el préstamo que necesitas en tiempo récord.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 animate-fade-in">
+                    <button class="bg-primary hover:bg-accent text-white font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                        Solicitar Préstamo
+                    </button>
+                    <button class="bg-transparent border-2 border-white text-white font-bold px-8 py-4 rounded-xl hover:bg-white/10 transition-all duration-300">
+                        <i class="fas fa-phone-alt mr-2"></i> +1 (786) 744-7747
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-0 right-0 flex justify-center animate-bounce">
+            <a href="#soluciones" class="text-white text-2xl">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+    
+    <!-- Loan Types Section -->
+    <section id="soluciones" class="py-20 bg-gray-50 dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                    Soluciones <span class="text-primary">Financieras</span>
+                </h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    Ofrecemos diversas opciones de crédito adaptadas a tus necesidades específicas.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Personal Loan -->
+                <div class="glass-card rounded-2xl p-8 hover-glow transition-all duration-300 hover:scale-105">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-wallet text-3xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Préstamos Personales</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        Dinero inmediato para emergencias, proyectos personales o cualquier necesidad financiera.
+                    </p>
+                    <a href="#" class="text-primary font-medium inline-flex items-center">
+                        Más información <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Vehicle Loan -->
+                <div class="glass-card rounded-2xl p-8 hover-glow transition-all duration-300 hover:scale-105">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-car text-3xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Préstamos Prendarios</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        Utiliza tu vehículo como garantía y obtén liquidez inmediata con tasas competitivas.
+                    </p>
+                    <a href="#" class="text-primary font-medium inline-flex items-center">
+                        Más información <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Mortgage Loan -->
+                <div class="glass-card rounded-2xl p-8 hover-glow transition-all duration-300 hover:scale-105">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-home text-3xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Préstamos Hipotecarios</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        Financiamiento para adquirir, remodelar o invertir en bienes raíces en toda la RD.
+                    </p>
+                    <a href="#" class="text-primary font-medium inline-flex items-center">
+                        Más información <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Debt Consolidation -->
+                <div class="glass-card rounded-2xl p-8 hover-glow transition-all duration-300 hover:scale-105">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-exchange-alt text-3xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Unificación de Deudas</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        Simplifica tus pagos mensuales combinando todas tus deudas en un solo préstamo.
+                    </p>
+                    <a href="#" class="text-primary font-medium inline-flex items-center">
+                        Más información <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Loan Calculator -->
+    <section class="py-20 bg-gradient-to-r from-primary/10 to-accent/10 dark:from-primary/5 dark:to-accent/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
+                        Calcula tu <span class="text-primary">Préstamo</span>
+                    </h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 mb-8">
+                        Utiliza nuestra calculadora para estimar el monto de tu cuota mensual según el préstamo que necesites.
+                    </p>
+                    
+                    <div class="glass-card rounded-2xl p-8">
+                        <div class="mb-6">
+                            <label for="loan-amount" class="block text-gray-700 dark:text-gray-300 font-medium mb-2">
+                                Monto del préstamo
+                            </label>
+                            <div class="flex items-center mb-2">
+                                <span class="text-gray-500 mr-2">RD$</span>
+                                <input type="range" id="loan-amount" min="10000" max="500000" step="10000" value="150000" class="w-full range-thumb">
+                            </div>
+                            <div class="flex justify-between text-sm text-gray-500">
+                                <span>RD$10,000</span>
+                                <span>RD$500,000</span>
+                            </div>
+                            <div class="mt-4 text-center">
+                                <span class="text-2xl font-bold text-primary" id="loan-amount-value">RD$150,000</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-8">
+                            <label for="loan-term" class="block text-gray-700 dark:text-gray-300 font-medium mb-2">
+                                Plazo (meses)
+                            </label>
+                            <div class="flex items-center mb-2">
+                                <input type="range" id="loan-term" min="6" max="60" step="6" value="24" class="w-full range-thumb">
+                            </div>
+                            <div class="flex justify-between text-sm text-gray-500">
+                                <span>6 meses</span>
+                                <span>60 meses</span>
+                            </div>
+                            <div class="mt-4 text-center">
+                                <span class="text-2xl font-bold text-primary" id="loan-term-value">24 meses</span>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-100 dark:bg-gray-800 rounded-xl p-6 text-center">
+                            <p class="text-gray-600 dark:text-gray-300 mb-2">Cuota mensual estimada</p>
+                            <p class="text-3xl font-bold text-primary" id="monthly-payment">RD$7,850</p>
+                            <p class="text-sm text-gray-500 mt-2">* Tasa de interés estimada: 12% anual</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <div class="glass-card rounded-2xl p-8 lg:p-12">
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+                            ¿Por qué elegir <span class="text-primary">Préstamos 4K</span>?
+                        </h3>
+                        
+                        <ul class="space-y-6">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 bg-primary/10 rounded-full p-2">
+                                    <i class="fas fa-bolt text-primary text-lg"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-semibold text-gray-900 dark:text-white">Decisiones y fondos rápidos</h4>
+                                    <p class="text-gray-600 dark:text-gray-300 mt-1">
+                                        Proceso ágil para recibir dinero en tiempo récord, a menudo el mismo día.
+                                    </p>
+                                </div>
+                            </li>
+                            
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 bg-primary/10 rounded-full p-2">
+                                    <i class="fas fa-percentage text-primary text-lg"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-semibold text-gray-900 dark:text-white">Tasas bajas y pagos flexibles</h4>
+                                    <p class="text-gray-600 dark:text-gray-300 mt-1">
+                                        Condiciones adaptadas a tu capacidad financiera con las mejores tasas del mercado.
+                                    </p>
+                                </div>
+                            </li>
+                            
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 bg-primary/10 rounded-full p-2">
+                                    <i class="fas fa-check-circle text-primary text-lg"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-semibold text-gray-900 dark:text-white">Aprobación simple y sin estrés</h4>
+                                    <p class="text-gray-600 dark:text-gray-300 mt-1">
+                                        Sistema optimizado para calificar sin burocracia ni requisitos complicados.
+                                    </p>
+                                </div>
+                            </li>
+                            
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 bg-primary/10 rounded-full p-2">
+                                    <i class="fas fa-headset text-primary text-lg"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-semibold text-gray-900 dark:text-white">Asesoramiento personalizado</h4>
+                                    <p class="text-gray-600 dark:text-gray-300 mt-1">
+                                        Nuestro equipo te acompaña paso a paso durante todo el proceso.
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="absolute -z-10 w-full h-full bg-primary/10 rounded-2xl -bottom-4 -right-4"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials -->
+    <section id="testimonios" class="py-20 bg-gray-50 dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                    Lo que dicen <span class="text-primary">nuestros clientes</span>
+                </h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    Miles de dominicanos han transformado su situación financiera con nuestros préstamos.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-card rounded-2xl p-8 hover-glow transition-all duration-300 hover:scale-[1.02]">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                            <i class="fas fa-user text-primary"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-gray-900 dark:text-white">Carlos M.</h4>
+                            <p class="text-sm text-gray-500">Santo Domingo</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">
+                        "Obtuve un préstamo personal en menos de 24 horas cuando tenía una emergencia médica. El proceso fue increíblemente sencillo y la tasa de interés muy razonable."
+                    </p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="glass-card rounded-2xl p-8 hover-glow transition-all duration-300 hover:scale-[1.02]">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                            <i class="fas fa-user text-primary"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-gray-900 dark:text-white">María R.</h4>
+                            <p class="text-sm text-gray-500">Santiago</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">
+                        "Utilicé mi carro como garantía y recibí el dinero que necesitaba para ampliar mi negocio. La atención personalizada hizo toda la diferencia."
+                    </p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="glass-card rounded-2xl p-8 hover-glow transition-all duration-300 hover:scale-[1.02]">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                            <i class="fas fa-user text-primary"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-gray-900 dark:text-white">Roberto P.</h4>
+                            <p class="text-sm text-gray-500">La Romana</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">
+                        "La unificación de deudas me salvó de pagar múltiples cuotas con altos intereses. Ahora tengo un solo pago mensual mucho más manejable."
+                    </p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+      <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-primary/90 to-accent/80 backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+                ¿Listo para transformar tu situación financiera?
+            </h2>
+            <p class="text-xl text-white/90 mb-10 max-w-3xl mx-auto">
+                Solicita tu préstamo hoy mismo y recibe una respuesta en minutos. Sin complicaciones, sin estrés.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-white text-primary font-bold px-8 py-4 rounded-xl shadow-lg hover:bg-gray-100 hover:scale-105 transition-all duration-300">
+                    Solicitar Préstamo
+                </button>
+                <button class="bg-transparent border-2 border-white text-white font-bold px-8 py-4 rounded-xl hover:bg-white/10 transition-all duration-300">
+                    <i class="fas fa-phone-alt mr-2"></i> +1 (786) 744-7747
+                </button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer id="contacto" class="bg-gray-100 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <span class="text-2xl font-bold bg-primary text-white px-3 py-1 rounded-lg">4K</span>
+                        <span class="ml-2 text-xl font-bold dark:text-white">Préstamos</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        La solución financiera rápida, flexible y personalizada en República Dominicana.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-accent transition-colors duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-accent transition-colors duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-accent transition-colors duration-300">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Soluciones</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-accent transition-colors duration-300">Préstamos Personales</a></li>
+                        <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-accent transition-colors duration-300">Préstamos Prendarios</a></li>
+                        <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-accent transition-colors duration-300">Préstamos Hipotecarios</a></li>
+                        <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-accent transition-colors duration-300">Unificación de Deudas</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Legal</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-accent transition-colors duration-300">Términos y Condiciones</a></li>
+                        <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-accent transition-colors duration-300">Política de Privacidad</a></li>
+                        <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-accent transition-colors duration-300">Contratos</a></li>
+                        <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-accent transition-colors duration-300">Preguntas Frecuentes</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Contacto</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-600 dark:text-gray-300">
+                            <i class="fas fa-phone-alt mr-2 text-primary"></i> +1 (786) 744-7747
+                        </li>
+                        <li class="flex items-center text-gray-600 dark:text-gray-300">
+                            <i class="fas fa-envelope mr-2 text-primary"></i> info@prestamos4k.com
+                        </li>
+                        <li class="flex items-center text-gray-600 dark:text-gray-300">
+                            <i class="fas fa-map-marker-alt mr-2 text-primary"></i> República Dominicana
+                        </li>
+                        <li class="flex items-center text-gray-600 dark:text-gray-300">
+                            <i class="fas fa-clock mr-2 text-primary"></i> Lunes a Viernes: 8:00 AM - 6:00 PM
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-200 dark:border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 dark:text-gray-400 mb-4 md:mb-0">
+                    © 2025 Préstamos 4K. Todos los derechos reservados.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-accent transition-colors duration-300">
+                        <i class="fab fa-cc-visa text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-accent transition-colors duration-300">
+                        <i class="fab fa-cc-mastercard text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-accent transition-colors duration-300">
+                        <i class="fab fa-cc-amex text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Mobile Sticky CTA -->
+    <div class="md:hidden fixed bottom-0 left-0 right-0 bg-white dark:bg-charcoal shadow-lg p-4 z-40">
+        <button class="w-full bg-primary text-white font-bold py-3 rounded-lg hover:bg-accent transition-colors duration-300">
+            Solicitar Préstamo
+        </button>
+    </div>
+    
+    <script>
+        // Dark mode toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        
+        // Check for saved user preference, if any, on load of the website
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        } else {
+            html.classList.remove('dark');
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+        });
+        
+        // Loan calculator functionality
+        const loanAmount = document.getElementById('loan-amount');
+        const loanTerm = document.getElementById('loan-term');
+        const loanAmountValue = document.getElementById('loan-amount-value');
+        const loanTermValue = document.getElementById('loan-term-value');
+        const monthlyPayment = document.getElementById('monthly-payment');
+        
+        function formatCurrency(amount) {
+            return new Intl.NumberFormat('es-DO', { style: 'currency', currency: 'DOP' }).format(amount).replace('DOP', 'RD$');
+        }
+        
+        function calculateMonthlyPayment() {
+            const amount = parseFloat(loanAmount.value);
+            const term = parseFloat(loanTerm.value);
+            const annualRate = 0.12; // 12% annual rate
+            const monthlyRate = annualRate / 12;
+            
+            // Monthly payment formula: P * (r(1+r)^n) / ((1+r)^n - 1)
+            const payment = amount * (monthlyRate * Math.pow(1 + monthlyRate, term)) / (Math.pow(1 + monthlyRate, term) - 1);
+            
+            loanAmountValue.textContent = formatCurrency(amount);
+            loanTermValue.textContent = `${term} meses`;
+            monthlyPayment.textContent = formatCurrency(payment.toFixed(2));
+        }
+        
+        loanAmount.addEventListener('input', calculateMonthlyPayment);
+        loanTerm.addEventListener('input', calculateMonthlyPayment);
+        
+        // Initialize calculator
+        calculateMonthlyPayment();
+        
+        // FAB button functionality
+        const fabButton = document.getElementById('fab-button');
+        
+        fabButton.addEventListener('click', () => {
+            alert('¡Gracias por tu interés! Un asesor se pondrá en contacto contigo pronto.');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
