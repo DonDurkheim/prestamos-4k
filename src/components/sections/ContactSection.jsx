@@ -19,8 +19,10 @@ const ContactSection = () => {
             <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
               <i className="fas fa-map-marker-alt text-2xl text-primary"></i>
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Dirección</h3>
-            <p className="text-gray-600 dark:text-gray-300">República Dominicana</p>
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Oficinas</h3>
+            <p className="text-gray-600 dark:text-gray-300">Santo Domingo</p>
+            <p className="text-gray-600 dark:text-gray-300">Punta Cana</p>
+            <p className="text-gray-600 dark:text-gray-300">La Romana</p>
           </div>
 
           {/* Horario */}
@@ -29,16 +31,27 @@ const ContactSection = () => {
               <i className="fas fa-clock text-2xl text-primary"></i>
             </div>
             <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Horario</h3>
-            <p className="text-gray-600 dark:text-gray-300">Lunes a Viernes: 8:00 AM - 6:00 PM</p>
+            <p className="text-gray-600 dark:text-gray-300">Lunes a Viernes</p>
+            <p className="text-gray-600 dark:text-gray-300">11:00 AM - 6:00 PM</p>
+            <p className="text-gray-600 dark:text-gray-300 mt-2">Sábados</p>
+            <p className="text-gray-600 dark:text-gray-300">11:00 AM - 3:00 PM</p>
           </div>
 
-          {/* Teléfono */}
+          {/* Contacto */}
           <div className="glass-card rounded-2xl p-8 text-center">
             <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
               <i className="fas fa-phone-alt text-2xl text-primary"></i>
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Teléfono</h3>
-            <p className="text-gray-600 dark:text-gray-300">+1 (786) 744-7747</p>
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Contacto</h3>
+            <a 
+              href="https://wa.me/17655807206" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-accent transition-colors duration-300"
+            >
+              <i className="fab fa-whatsapp mr-2"></i>
+              +1 (765) 580-7206
+            </a>
           </div>
         </div>
 

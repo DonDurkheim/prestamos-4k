@@ -1,4 +1,5 @@
 import React from 'react';
+import videoSource from '../../assets/fin1.mp4';
 
 const HeroSection = () => {
   return (
@@ -10,7 +11,7 @@ const HeroSection = () => {
         loop 
         playsInline
       >
-        <source src="/fin1.mp4" type="video/mp4" />
+        <source src={videoSource} type="video/mp4" />
       </video>
       <div className="absolute inset-0 bg-black/40 dark:bg-black/60"></div>
       
@@ -23,12 +24,22 @@ const HeroSection = () => {
             Soluciones financieras rápidas, flexibles y personalizadas en República Dominicana. Obtén el préstamo que necesitas en tiempo récord.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 animate-fade-in">
-            <button className="bg-primary hover:bg-accent text-white font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-              Solicitar Préstamo
-            </button>
-            <button className="bg-transparent border-2 border-white text-white font-bold px-8 py-4 rounded-xl hover:bg-white/10 transition-all duration-300">
-              <i className="fas fa-phone-alt mr-2"></i> +1 (786) 744-7747
-            </button>
+            <a 
+              href="https://wa.me/17655807206" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-primary hover:bg-accent text-white font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center"
+            >
+              <i className="fab fa-whatsapp mr-2"></i> Solicitar Préstamo
+            </a>
+            <a 
+              href="https://wa.me/17655807206" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-transparent border-2 border-white text-white font-bold px-8 py-4 rounded-xl hover:bg-white/10 transition-all duration-300 inline-flex items-center justify-center"
+            >
+              <i className="fab fa-whatsapp mr-2"></i> +1 (765) 580-7206
+            </a>
           </div>
         </div>
       </div>

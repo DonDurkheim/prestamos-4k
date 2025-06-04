@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 const LoanCalculatorSection = () => {
   const [loanAmount, setLoanAmount] = useState(150000);
   const [loanTerm, setLoanTerm] = useState(24);
+  const [loanType, setLoanType] = useState('personal'); // 'personal' or 'secured'
   const [monthlyPayment, setMonthlyPayment] = useState(0);
 
   const formatCurrency = (amount) => {
@@ -13,8 +14,7 @@ const LoanCalculatorSection = () => {
     const calculateMonthlyPayment = () => {
       const amount = parseFloat(loanAmount);
       const term = parseFloat(loanTerm);
-      const annualRate = 0.12; // 12% annual rate
-      const monthlyRate = annualRate / 12;
+      const monthlyRate = loanType === 'personal' ? 0.04 : 0.03; // 4% for personal, 3% for secured
       
       // Monthly payment formula: P * (r(1+r)^n) / ((1+r)^n - 1)
       const payment = amount * (monthlyRate * Math.pow(1 + monthlyRate, term)) / (Math.pow(1 + monthlyRate, term) - 1);
@@ -22,7 +22,7 @@ const LoanCalculatorSection = () => {
     };
 
     calculateMonthlyPayment();
-  }, [loanAmount, loanTerm]);
+  }, [loanAmount, loanTerm, loanType]);
 
   return (
     <section className="py-20 bg-gradient-to-r from-primary/10 to-accent/10 dark:from-primary/5 dark:to-accent/5">
@@ -37,6 +37,36 @@ const LoanCalculatorSection = () => {
             </p>
             
             <div className="glass-card rounded-2xl p-8">
+              <div className="mb-6">
+                <label className="block text-gray-700 dark:text-gray-300 font-medium mb-4">
+                  Tipo de Préstamo
+                </label>
+                <div className="grid grid-cols-2 gap-4">
+                  <button
+                    onClick={() => setLoanType('personal')}
+                    className={`p-4 rounded-xl text-center transition-all duration-300 ${
+                      loanType === 'personal'
+                        ? 'bg-primary text-white'
+                        : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300'
+                    }`}
+                  >
+                    Préstamo Personal
+                    <div className="text-sm mt-1">4% mensual</div>
+                  </button>
+                  <button
+                    onClick={() => setLoanType('secured')}
+                    className={`p-4 rounded-xl text-center transition-all duration-300 ${
+                      loanType === 'secured'
+                        ? 'bg-primary text-white'
+                        : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300'
+                    }`}
+                  >
+                    Préstamo Prendario
+                    <div className="text-sm mt-1">3% mensual</div>
+                  </button>
+                </div>
+              </div>
+
               <div className="mb-6">
                 <label htmlFor="loan-amount" className="block text-gray-700 dark:text-gray-300 font-medium mb-2">
                   Monto del préstamo
@@ -91,7 +121,9 @@ const LoanCalculatorSection = () => {
               <div className="bg-gray-100 dark:bg-gray-800 rounded-xl p-6 text-center">
                 <p className="text-gray-600 dark:text-gray-300 mb-2">Cuota mensual estimada</p>
                 <p className="text-3xl font-bold text-primary">{formatCurrency(monthlyPayment)}</p>
-                <p className="text-sm text-gray-500 mt-2">* Tasa de interés estimada: 12% anual</p>
+                <p className="text-sm text-gray-500 mt-2">
+                  * Tasa de interés: {loanType === 'personal' ? '4%' : '3%'} mensual
+                </p>
               </div>
             </div>
           </div>

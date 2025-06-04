@@ -67,15 +67,25 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-center">
                 <i className="fas fa-map-marker-alt mr-3 text-primary"></i>
-                <span className="text-gray-600 dark:text-gray-400">República Dominicana</span>
+                <span className="text-gray-600 dark:text-gray-400">Santo Domingo - Punta Cana - La Romana</span>
               </li>
               <li className="flex items-center">
-                <i className="fas fa-phone-alt mr-3 text-primary"></i>
-                <span className="text-gray-600 dark:text-gray-400">+1 (786) 744-7747</span>
+                <i className="fab fa-whatsapp mr-3 text-primary"></i>
+                <a 
+                  href="https://wa.me/17655807206" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-accent transition-colors duration-300"
+                >
+                  +1 (765) 580-7206
+                </a>
               </li>
               <li className="flex items-center">
-                <i className="fas fa-envelope mr-3 text-primary"></i>
-                <span className="text-gray-600 dark:text-gray-400">info@4kprestamos.com</span>
+                <i className="fas fa-clock mr-3 text-primary"></i>
+                <span className="text-gray-600 dark:text-gray-400">
+                  L-V: 11:00 AM - 6:00 PM<br />
+                  Sáb: 11:00 AM - 3:00 PM
+                </span>
               </li>
             </ul>
           </div>

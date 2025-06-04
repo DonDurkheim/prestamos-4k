@@ -68,10 +68,10 @@ const TestimonialsSection = () => {
           ))}
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
           {stats.map((stat, index) => (
             <div key={index} className="text-center glass-card rounded-2xl p-6 hover-glow backdrop-blur-[10px]">
-              <div className="text-4xl font-bold text-primary mb-2">{stat.number}</div>
+              <div className="text-2xl md:text-4xl font-bold text-primary mb-2">{stat.number}</div>
               <div className="text-gray-600 dark:text-gray-300">{stat.label}</div>
             </div>
           ))}

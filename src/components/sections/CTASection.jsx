@@ -11,12 +11,22 @@ const CTASection = () => {
           Solicita tu préstamo hoy mismo y recibe una respuesta en minutos. Sin complicaciones, sin estrés.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button className="bg-white text-primary font-bold px-8 py-4 rounded-xl shadow-lg hover:bg-gray-100 hover:scale-105 transition-all duration-300">
-            Solicitar Préstamo
-          </button>
-          <button className="bg-transparent border-2 border-white text-white font-bold px-8 py-4 rounded-xl hover:bg-white/10 transition-all duration-300">
-            <i className="fas fa-phone-alt mr-2"></i> +1 (786) 744-7747
-          </button>
+          <a 
+            href="https://wa.me/17655807206" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="bg-white text-primary font-bold px-8 py-4 rounded-xl shadow-lg hover:bg-gray-100 hover:scale-105 transition-all duration-300 inline-flex items-center justify-center"
+          >
+            <i className="fab fa-whatsapp mr-2"></i> Solicitar Préstamo
+          </a>
+          <a 
+            href="https://wa.me/17655807206" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="bg-transparent border-2 border-white text-white font-bold px-8 py-4 rounded-xl hover:bg-white/10 transition-all duration-300 inline-flex items-center justify-center"
+          >
+            <i className="fab fa-whatsapp mr-2"></i> +1 (765) 580-7206
+          </a>
         </div>
       </div>
     </section>
