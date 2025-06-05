@@ -3,7 +3,7 @@ import videoSource from '../../assets/fin1.mp4';
 
 const HeroSection = () => {
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden hero-gradient pt-24">
       <video 
         className="absolute inset-0 w-full h-full object-cover" 
         autoPlay 
@@ -13,22 +13,22 @@ const HeroSection = () => {
       >
         <source src={videoSource} type="video/mp4" />
       </video>
-      <div className="absolute inset-0 bg-black/40 dark:bg-black/60"></div>
+      <div className="absolute inset-0 bg-black/30 dark:bg-black/50 backdrop-blur-[2px]"></div>
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="glass-card rounded-3xl p-8 md:p-12 max-w-2xl mx-auto backdrop-blur-sm animate-fade-in">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 animate-slide-up">
-            Tu Dinero, <span className="text-accent">Hoy Mismo</span>
+        <div className="bg-white/90 dark:bg-dark-surface/90 rounded-3xl p-12 max-w-2xl mx-auto backdrop-blur-sm animate-fade-in shadow-xl">
+          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-dark-text mb-6 animate-slide-up">
+            Tu Dinero, <span className="text-primary dark:text-accent">Hoy Mismo</span>
           </h1>
-          <p className="text-lg md:text-xl text-white/90 mb-8 animate-fade-in">
+          <p className="text-xl md:text-2xl text-gray-700 dark:text-dark-textSubtle mb-10 animate-fade-in">
             Soluciones financieras rápidas, flexibles y personalizadas en República Dominicana. Obtén el préstamo que necesitas en tiempo récord.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 animate-fade-in">
+          <div className="flex flex-col sm:flex-row gap-6 animate-fade-in">
             <a 
               href="https://wa.me/17655807206" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="bg-primary hover:bg-accent text-white font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center"
+              className="btn-primary inline-flex items-center justify-center text-lg"
             >
               <i className="fab fa-whatsapp mr-2"></i> Solicitar Préstamo
             </a>
@@ -36,7 +36,7 @@ const HeroSection = () => {
               href="https://wa.me/17655807206" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="bg-transparent border-2 border-white text-white font-bold px-8 py-4 rounded-xl hover:bg-white/10 transition-all duration-300 inline-flex items-center justify-center"
+              className="btn-secondary inline-flex items-center justify-center text-lg"
             >
               <i className="fab fa-whatsapp mr-2"></i> +1 (765) 580-7206
             </a>
@@ -45,7 +45,7 @@ const HeroSection = () => {
       </div>
       
       <div className="absolute bottom-10 left-0 right-0 flex justify-center animate-bounce">
-        <a href="#soluciones" className="text-white text-2xl">
+        <a href="#soluciones" className="text-surface dark:text-dark-text text-3xl hover:text-primary dark:hover:text-accent transition-colors duration-300">
           <i className="fas fa-chevron-down"></i>
         </a>
       </div>

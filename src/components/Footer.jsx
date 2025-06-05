@@ -1,40 +1,40 @@
 import React from 'react';
+import logo from '../assets/new-logo.png';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white py-16">
+    <footer className="bg-background dark:bg-dark-surface text-text dark:text-dark-text py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div>
             <div className="flex items-center mb-6">
-              <span className="text-2xl font-bold bg-primary text-white px-3 py-1 rounded-lg">4K</span>
-              <span className="ml-2 text-xl font-bold">Préstamos</span>
+              <img src={logo} alt="4K Préstamos Logo" className="h-24 w-auto" />
             </div>
-            <p className="text-gray-600 dark:text-gray-400">
+            <p className="text-textSubtle dark:text-dark-textSubtle">
               Soluciones financieras rápidas y confiables en República Dominicana.
             </p>
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-6">Enlaces Rápidos</h3>
+            <h3 className="text-lg font-semibold mb-6 text-text dark:text-dark-text">Enlaces Rápidos</h3>
             <ul className="space-y-3">
               <li>
-                <a href="#soluciones" className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-accent transition-colors duration-300">
+                <a href="#soluciones" className="text-textSubtle dark:text-dark-textSubtle hover:text-primary dark:hover:text-accent transition-colors duration-300">
                   Soluciones
                 </a>
               </li>
               <li>
-                <a href="#beneficios" className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-accent transition-colors duration-300">
+                <a href="#beneficios" className="text-textSubtle dark:text-dark-textSubtle hover:text-primary dark:hover:text-accent transition-colors duration-300">
                   Por qué elegirnos
                 </a>
               </li>
               <li>
-                <a href="#testimonios" className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-accent transition-colors duration-300">
+                <a href="#testimonios" className="text-textSubtle dark:text-dark-textSubtle hover:text-primary dark:hover:text-accent transition-colors duration-300">
                   Testimonios
                 </a>
               </li>
               <li>
-                <a href="#contacto" className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-accent transition-colors duration-300">
+                <a href="#contacto" className="text-textSubtle dark:text-dark-textSubtle hover:text-primary dark:hover:text-accent transition-colors duration-300">
                   Contacto
                 </a>
               </li>
@@ -42,65 +42,55 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-6">Servicios</h3>
+            <h3 className="text-lg font-semibold mb-6 text-text dark:text-dark-text">Contacto</h3>
             <ul className="space-y-3">
-              <li>
-                <a href="#prestamos-personales" className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-accent transition-colors duration-300">
-                  Préstamos Personales
+              <li className="flex items-center text-textSubtle dark:text-dark-textSubtle">
+                <i className="fas fa-phone mr-3 text-primary dark:text-accent"></i>
+                <a href="tel:+17655807206" className="hover:text-primary dark:hover:text-accent transition-colors duration-300">
+                  +1 (765) 580-7206
                 </a>
               </li>
-              <li>
-                <a href="#prestamos-empresariales" className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-accent transition-colors duration-300">
-                  Préstamos Empresariales
+              <li className="flex items-center text-textSubtle dark:text-dark-textSubtle">
+                <i className="fab fa-whatsapp mr-3 text-primary dark:text-accent"></i>
+                <a href="https://wa.me/17655807206" className="hover:text-primary dark:hover:text-accent transition-colors duration-300">
+                  WhatsApp
                 </a>
               </li>
-              <li>
-                <a href="#prestamos-hipotecarios" className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-accent transition-colors duration-300">
-                  Préstamos Hipotecarios
+              <li className="flex items-center text-textSubtle dark:text-dark-textSubtle">
+                <i className="fas fa-envelope mr-3 text-primary dark:text-accent"></i>
+                <a href="mailto:info@prestamos4k.com" className="hover:text-primary dark:hover:text-accent transition-colors duration-300">
+                  info@prestamos4k.com
                 </a>
               </li>
             </ul>
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-6">Contacto</h3>
-            <ul className="space-y-3">
-              <li className="flex items-center">
-                <i className="fas fa-map-marker-alt mr-3 text-primary"></i>
-                <span className="text-gray-600 dark:text-gray-400">Santo Domingo - Punta Cana - La Romana</span>
-              </li>
-              <li className="flex items-center">
-                <i className="fab fa-whatsapp mr-3 text-primary"></i>
-                <a 
-                  href="https://wa.me/17655807206" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-accent transition-colors duration-300"
-                >
-                  +1 (765) 580-7206
-                </a>
-              </li>
-              <li className="flex items-center">
-                <i className="fas fa-clock mr-3 text-primary"></i>
-                <span className="text-gray-600 dark:text-gray-400">
-                  L-V: 11:00 AM - 6:00 PM<br />
-                  Sáb: 11:00 AM - 3:00 PM
-                </span>
-              </li>
-            </ul>
+            <h3 className="text-lg font-semibold mb-6 text-text dark:text-dark-text">Síguenos</h3>
+            <div className="flex space-x-4">
+              <a href="#" className="text-textSubtle dark:text-dark-textSubtle hover:text-primary dark:hover:text-accent transition-colors duration-300">
+                <i className="fab fa-facebook text-2xl"></i>
+              </a>
+              <a href="#" className="text-textSubtle dark:text-dark-textSubtle hover:text-primary dark:hover:text-accent transition-colors duration-300">
+                <i className="fab fa-instagram text-2xl"></i>
+              </a>
+              <a href="#" className="text-textSubtle dark:text-dark-textSubtle hover:text-primary dark:hover:text-accent transition-colors duration-300">
+                <i className="fab fa-twitter text-2xl"></i>
+              </a>
+            </div>
           </div>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-gray-200 dark:border-gray-800">
+        <div className="mt-16 pt-8 border-t border-border dark:border-dark-border">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-600 dark:text-gray-400 text-sm">
+            <p className="text-textSubtle dark:text-dark-textSubtle text-sm">
               © 2025 4K Préstamos. Todos los derechos reservados.
             </p>
             <div className="flex space-x-8 mt-4 md:mt-0">
-              <a href="#" className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-accent transition-colors duration-300">
+              <a href="#" className="text-textSubtle dark:text-dark-textSubtle hover:text-primary dark:hover:text-accent transition-colors duration-300 text-sm">
                 Términos y Condiciones
               </a>
-              <a href="#" className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-accent transition-colors duration-300">
+              <a href="#" className="text-textSubtle dark:text-dark-textSubtle hover:text-primary dark:hover:text-accent transition-colors duration-300 text-sm">
                 Política de Privacidad
               </a>
             </div>

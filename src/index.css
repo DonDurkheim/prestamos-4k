@@ -2,51 +2,100 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-primary: #C74E1E;
+  --color-accent: #2C5E5A;
+  --color-secondary: #5A8C8A;
+  --color-background: #F9F7F5;
+  --color-surface: #FFFFFF;
+  --color-text: #3A3631;
+  --color-text-subtle: #6B6660;
+  --color-border: #E0D8D2;
+}
+
 @layer base {
   body {
     font-family: 'Poppins', sans-serif;
-    background-color: #FAFAFA;
-    color: #1C1C1E;
-    transition: background-color 0.3s ease;
+    background-color: theme('colors.background');
+    color: theme('colors.text');
+    transition: all 0.3s ease;
+    background-image: 
+      radial-gradient(circle at 1px 1px, 
+        rgba(0, 0, 0, 0.03) 1px, 
+        transparent 1px
+      );
+    background-size: 20px 20px;
   }
   
   .dark body {
-    background-color: #1C1C1E;
-    color: #FAFAFA;
+    background-color: theme('colors.dark.background');
+    color: theme('colors.dark.text');
+  }
+
+  :root {
+    --color-surfaceDark: theme('colors.surfaceDark');
+    --color-dark-surface: theme('colors.dark.surface');
   }
 }
 
 @layer components {
   .glass-card {
-    @apply bg-white/10 backdrop-blur-[10px] border border-white/20;
+    @apply bg-white/90 backdrop-blur-[10px] border border-white/50 shadow-lg;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+  }
+  
+  .glass-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
   }
   
   .dark .glass-card {
-    @apply bg-charcoal/70 border-white/10;
+    @apply bg-dark-surface/95 backdrop-blur-[12px] border-dark-border shadow-dark-glow;
+    background: rgba(26, 26, 31, 0.7);
   }
   
   .hero-gradient {
-    @apply bg-gradient-to-r from-primary/80 to-accent/60;
+    @apply bg-hero-gradient;
   }
   
   .dark .hero-gradient {
-    @apply from-primary/60 to-accent/40;
+    @apply bg-dark-hero-gradient;
   }
   
   .glow-border {
     @apply shadow-glow;
   }
   
+  .dark .glow-border {
+    @apply shadow-dark-glow;
+  }
+  
   .hover-glow:hover {
     @apply shadow-glow-lg;
+  }
+  
+  .dark .hover-glow:hover {
+    @apply shadow-dark-glow-lg;
   }
   
   .range-thumb::-webkit-slider-thumb {
     @apply appearance-none w-6 h-6 rounded-full bg-primary cursor-pointer shadow-glow;
   }
   
+  .dark .range-thumb::-webkit-slider-thumb {
+    @apply shadow-dark-glow;
+  }
+  
   .range-thumb::-moz-range-thumb {
     @apply w-6 h-6 rounded-full bg-primary cursor-pointer shadow-glow border-0;
+  }
+  
+  .dark .range-thumb::-moz-range-thumb {
+    @apply shadow-dark-glow;
   }
 }
 
@@ -66,11 +115,15 @@
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-gray-100 dark:bg-gray-800;
+  background-color: var(--color-surfaceDark);
+}
+
+.dark ::-webkit-scrollbar-track {
+  background-color: var(--color-dark-surface);
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-primary/50 rounded-full hover:bg-primary/70;
+  @apply bg-primary/40 rounded-full hover:bg-primary/70 dark:bg-primary/30 dark:hover:bg-primary/50;
 }
 
 /* Smooth scrolling */
@@ -85,7 +138,26 @@ html {
 
 /* Glass morphism effects */
 .glass-effect {
-  @apply bg-gradient-to-br from-white/10 to-white/5 dark:from-charcoal/70 dark:to-charcoal/50 backdrop-blur-md border border-white/20 dark:border-white/10;
+  @apply bg-white/70 backdrop-blur-md border border-white/50;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+}
+
+.glass-effect:hover {
+  @apply bg-white/80 shadow-lg;
+  transform: translateY(-2px);
+}
+
+.dark .glass-effect {
+  @apply bg-dark-glass-gradient backdrop-blur-lg border-dark-border;
+  background: rgba(26, 26, 31, 0.6);
+}
+
+.dark .glass-effect:hover {
+  @apply shadow-dark-glow-lg;
+  background: rgba(26, 26, 31, 0.7);
 }
 
 /* Gradient text */
@@ -93,23 +165,58 @@ html {
   @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
 }
 
+.dark .gradient-text {
+  @apply from-primary/90 to-accent/90;
+}
+
 /* Card hover effects */
 .card-hover {
-  @apply transform hover:scale-105 transition-all duration-300;
+  @apply transform transition-all duration-300 shadow-lg;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, box-shadow;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.dark .card-hover {
+  @apply shadow-dark-glow;
+}
+
+.dark .card-hover:hover {
+  @apply shadow-dark-glow-lg;
+  transform: translateY(-4px) scale(1.02);
 }
 
 /* Button styles */
 .btn-primary {
-  @apply bg-primary hover:bg-accent text-white font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105;
+  @apply bg-gradient-to-r from-primary to-primary/90 text-white font-medium px-8 py-3 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-[1.02] border border-primary/20;
+  letter-spacing: 0.02em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.dark .btn-primary {
+  @apply bg-dark-cta-gradient text-dark-text shadow-dark-glow hover:shadow-dark-glow-lg border-dark-border;
 }
 
 .btn-secondary {
-  @apply bg-transparent border-2 border-white text-white font-bold px-8 py-4 rounded-xl hover:bg-white/10 transition-all duration-300;
+  @apply bg-surface border-2 border-primary text-primary font-bold px-8 py-4 rounded-2xl hover:bg-primary hover:text-white transition-all duration-300 shadow-md;
+}
+
+.dark .btn-secondary {
+  @apply bg-dark-surface border-dark-border text-dark-text hover:bg-primary/90;
 }
 
 /* Input styles */
 .input-primary {
-  @apply w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent;
+  @apply w-full px-4 py-3 rounded-xl border border-border dark:border-dark-border bg-white/90 dark:bg-dark-surface text-text dark:text-dark-text focus:ring-2 focus:ring-primary/50 focus:border-transparent shadow-sm transition-all duration-200;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.input-primary:focus {
+  @apply border-primary/50 ring-2 ring-primary/20;
 }
 
 /* Section styles */
@@ -118,22 +225,47 @@ html {
 }
 
 .section-title {
-  @apply text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4;
+  @apply text-3xl md:text-4xl font-bold text-text dark:text-dark-text mb-4;
 }
 
 .section-subtitle {
-  @apply text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto;
+  @apply text-lg text-textSubtle dark:text-dark-textSubtle max-w-2xl mx-auto;
 }
 
 /* CTA section */
 .cta-section {
-  @apply py-20 bg-gradient-to-r from-primary/90 to-accent/80 backdrop-blur-sm;
+  @apply py-20 bg-cta-gradient backdrop-blur-sm rounded-3xl shadow-xl;
+}
+
+.dark .cta-section {
+  @apply bg-dark-cta-gradient shadow-dark-glow;
 }
 
 .cta-title {
-  @apply text-3xl md:text-4xl font-bold text-white mb-6;
+  @apply text-3xl md:text-4xl font-bold text-surface dark:text-dark-text mb-6;
 }
 
 .cta-subtitle {
-  @apply text-xl text-white/90 mb-10 max-w-3xl mx-auto;
+  @apply text-xl text-surface/90 dark:text-dark-textSubtle mb-10 max-w-3xl mx-auto;
+}
+
+/* Theme Toggle Styles */
+.theme-toggle-wrapper {
+  @apply fixed left-6 z-50; /* Same z-index as WhatsApp button */
+  bottom: calc(5rem + env(safe-area-inset-bottom, 0));
+  transition: all 0.3s ease;
+}
+
+/* Adjust position when mobile bottom bar is visible */
+@media (max-width: 768px) {
+  .theme-toggle-wrapper {
+    bottom: calc(5rem + env(safe-area-inset-bottom, 0));
+    z-index: 50; /* Ensure same z-index on mobile */
+  }
+}
+
+/* Ensure button is above mobile bottom bar and matches WhatsApp button style */
+.theme-toggle-wrapper button {
+  @apply w-14 h-14 rounded-full shadow-xl hover:shadow-2xl flex items-center justify-center text-2xl;
+  transition: all 0.3s ease;
 }

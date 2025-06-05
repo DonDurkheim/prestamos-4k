@@ -63,27 +63,8 @@ const ContactSection = () => {
               <i className="fab fa-facebook-f"></i>
             </a>
             <a href="#" className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300">
-              <i className="fab fa-twitter"></i>
-            </a>
-            <a href="#" className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300">
               <i className="fab fa-instagram"></i>
             </a>
-            <a href="#" className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300">
-              <i className="fab fa-linkedin-in"></i>
-            </a>
-          </div>
-        </div>
-
-        {/* Soporte 24/7 */}
-        <div className="mt-16 text-center">
-          <div className="glass-card rounded-2xl p-8 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Soporte 24/7</h3>
-            <p className="text-gray-600 dark:text-gray-300 mb-6">
-              Nuestro equipo está disponible para ayudarte en cualquier momento. No dudes en contactarnos.
-            </p>
-            <button className="bg-primary text-white font-bold px-8 py-4 rounded-xl hover:bg-accent transition-all duration-300">
-              <i className="fas fa-headset mr-2"></i> Contactar Soporte
-            </button>
           </div>
         </div>
       </div>
