@@ -46,9 +46,6 @@ const LoanTypesSection = () => {
               <p className="text-gray-600 dark:text-gray-300 mb-4">
                 {loan.description}
               </p>
-              <a href="#" className="text-primary font-medium inline-flex items-center">
-                Más información <i className="fas fa-arrow-right ml-2"></i>
-              </a>
             </div>
           ))}
         </div>
