@@ -66,7 +66,7 @@ const ContactSection = () => {
               <i className="fab fa-instagram"></i>
             </a>
           </div> */}
-        </div>
+        {/* </div> */}
       </div>
     </section>
   );

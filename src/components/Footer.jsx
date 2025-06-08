@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div>
             <div className="flex items-center mb-6">
-              <img src={logo} alt="4K Préstamos Logo" className="h-96 w-auto" />
+              <img src={logo} alt="4K Préstamos Logo" className="h-76 w-auto" />
             </div>
             <p className="text-textSubtle dark:text-dark-textSubtle">
               Soluciones financieras rápidas y confiables en República Dominicana.
