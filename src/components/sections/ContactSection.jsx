@@ -55,7 +55,7 @@ const ContactSection = () => {
           </div>
         </div>
 
-        {/* Redes Sociales */}
+        {/* Redes Sociales
         <div className="mt-16 text-center">
           <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-8">Síguenos en Redes Sociales</h3>
           <div className="flex justify-center space-x-6">
@@ -65,7 +65,7 @@ const ContactSection = () => {
             <a href="#" className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300">
               <i className="fab fa-instagram"></i>
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
