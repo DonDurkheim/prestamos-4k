@@ -12,12 +12,15 @@ const LoanCalculatorSection = () => {
 
   useEffect(() => {
     const calculateMonthlyPayment = () => {
-      const amount = parseFloat(loanAmount);
+      const baseAmount = parseFloat(loanAmount);
       const term = parseFloat(loanTerm);
       const monthlyRate = loanType === 'personal' ? 0.04 : 0.03; // 4% for personal, 3% for secured
       
+      // Add 6% legal expenses to the total amount
+      const totalAmount = baseAmount * 1.06;
+      
       // Monthly payment formula: P * (r(1+r)^n) / ((1+r)^n - 1)
-      const payment = amount * (monthlyRate * Math.pow(1 + monthlyRate, term)) / (Math.pow(1 + monthlyRate, term) - 1);
+      const payment = totalAmount * (monthlyRate * Math.pow(1 + monthlyRate, term)) / (Math.pow(1 + monthlyRate, term) - 1);
       setMonthlyPayment(payment);
     };
 
