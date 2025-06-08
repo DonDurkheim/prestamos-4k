@@ -16,12 +16,19 @@ const LoanCalculatorSection = () => {
       const term = parseFloat(loanTerm);
       const monthlyRate = loanType === 'personal' ? 0.04 : 0.03; // 4% for personal, 3% for secured
       
-      // Add 6% legal expenses to the total amount
-      const totalAmount = baseAmount * 1.06;
+      // Add 6% legal expenses to the total capital
+      const totalAmountWithExpenses = baseAmount * 1.06;
       
-      // Monthly payment formula: P * (r(1+r)^n) / ((1+r)^n - 1)
-      const payment = totalAmount * (monthlyRate * Math.pow(1 + monthlyRate, term)) / (Math.pow(1 + monthlyRate, term) - 1);
-      setMonthlyPayment(payment);
+      // Calculate simple interest over the term on the total amount
+      const totalInterestAmount = totalAmountWithExpenses * monthlyRate * term;
+      
+      // Grand total to be paid including capital, expenses, and total interest
+      const grandTotal = totalAmountWithExpenses + totalInterestAmount;
+      
+      // Monthly payment is the grand total divided by the term
+      const payment = grandTotal / term;
+
+      setMonthlyPayment(Math.ceil(payment));
     };
 
     calculateMonthlyPayment();
