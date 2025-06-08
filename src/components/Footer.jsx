@@ -64,18 +64,6 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-
-          <div>
-            <h3 className="text-lg font-semibold mb-6 text-text dark:text-dark-text">Síguenos</h3>
-            <div className="flex space-x-4">
-              <a href="#" className="text-textSubtle dark:text-dark-textSubtle hover:text-primary dark:hover:text-accent transition-colors duration-300">
-                <i className="fab fa-facebook text-2xl"></i>
-              </a>
-              <a href="#" className="text-textSubtle dark:text-dark-textSubtle hover:text-primary dark:hover:text-accent transition-colors duration-300">
-                <i className="fab fa-instagram text-2xl"></i>
-              </a>
-            </div>
-          </div>
         </div>
 
         <div className="mt-16 pt-8 border-t border-border dark:border-dark-border">
