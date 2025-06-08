@@ -134,6 +134,9 @@ const LoanCalculatorSection = () => {
                 <p className="text-sm text-gray-500 mt-2">
                   * Tasa de interés: {loanType === 'personal' ? '4%' : '3%'} mensual
                 </p>
+                <p className="text-sm text-gray-500 mt-1">
+                  * Incluye gastos de cierre
+                </p>
               </div>
             </div>
           </div>

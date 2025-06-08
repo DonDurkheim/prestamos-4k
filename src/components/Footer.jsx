@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div>
             <div className="flex items-center mb-6">
-              <img src={logo} alt="4K Préstamos Logo" className="h-24 w-auto" />
+              <img src={logo} alt="4K Préstamos Logo" className="h-32 w-auto" />
             </div>
             <p className="text-textSubtle dark:text-dark-textSubtle">
               Soluciones financieras rápidas y confiables en República Dominicana.
@@ -73,9 +73,6 @@ const Footer = () => {
               </a>
               <a href="#" className="text-textSubtle dark:text-dark-textSubtle hover:text-primary dark:hover:text-accent transition-colors duration-300">
                 <i className="fab fa-instagram text-2xl"></i>
-              </a>
-              <a href="#" className="text-textSubtle dark:text-dark-textSubtle hover:text-primary dark:hover:text-accent transition-colors duration-300">
-                <i className="fab fa-twitter text-2xl"></i>
               </a>
             </div>
           </div>
