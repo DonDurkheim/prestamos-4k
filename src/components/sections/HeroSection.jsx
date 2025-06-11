@@ -4,8 +4,9 @@ import videoSource from '../../assets/fin1.mp4';
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden hero-gradient pt-24">
+      {/* Video background for dark mode only */}
       <video 
-        className="absolute inset-0 w-full h-full object-cover" 
+        className="absolute inset-0 w-full h-full object-cover dark:block hidden" 
         autoPlay 
         muted 
         loop 
@@ -13,6 +14,10 @@ const HeroSection = () => {
       >
         <source src={videoSource} type="video/mp4" />
       </video>
+      
+      {/* Static gradient background for light mode */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-primary/5 to-accent/5 dark:hidden"></div>
+      
       <div className="absolute inset-0 bg-black/30 dark:bg-black/50 backdrop-blur-[2px]"></div>
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">

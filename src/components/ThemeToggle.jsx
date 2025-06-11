@@ -32,19 +32,17 @@ const ThemeToggle = () => {
   };
 
   return (
-    <div className="theme-toggle-wrapper">
-      <button 
-        onClick={handleToggle} 
-        className="p-3 rounded-full bg-surface dark:bg-dark-surface shadow-md hover:shadow-lg transition-all duration-200"
-        aria-label="Toggle theme"
-      >
-        {isDark ? (
-          <span role="img" aria-label="Moon">🌙</span>
-        ) : (
-          <span role="img" aria-label="Sun">☀️</span>
-        )}
-      </button>
-    </div>
+    <button 
+      onClick={handleToggle} 
+      className="w-14 h-14 rounded-full bg-surface dark:bg-dark-surface shadow-md hover:shadow-lg transition-all duration-200 flex items-center justify-center"
+      aria-label="Toggle theme"
+    >
+      {isDark ? (
+        <span role="img" aria-label="Moon">🌙</span>
+      ) : (
+        <span role="img" aria-label="Sun">☀️</span>
+      )}
+    </button>
   );
 };
 

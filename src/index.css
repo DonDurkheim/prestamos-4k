@@ -20,16 +20,29 @@
     color: theme('colors.text');
     transition: all 0.3s ease;
     background-image: 
+      linear-gradient(135deg, 
+        rgba(249, 247, 245, 0.95) 0%,
+        rgba(199, 78, 30, 0.05) 25%,
+        rgba(44, 94, 90, 0.05) 50%,
+        rgba(90, 140, 138, 0.05) 75%,
+        rgba(249, 247, 245, 0.95) 100%
+      ),
       radial-gradient(circle at 1px 1px, 
         rgba(0, 0, 0, 0.03) 1px, 
         transparent 1px
       );
-    background-size: 20px 20px;
+    background-size: 100% 100%, 20px 20px;
   }
   
   .dark body {
     background-color: theme('colors.dark.background');
     color: theme('colors.dark.text');
+    background-image: 
+      radial-gradient(circle at 1px 1px, 
+        rgba(255, 255, 255, 0.03) 1px, 
+        transparent 1px
+      );
+    background-size: 20px 20px;
   }
 
   :root {
