@@ -55,21 +55,21 @@ const ContactSection = () => {
           </div>
         </div>
 
-        {/* Redes Sociales
+        {/* Redes Sociales */}
         <div className="mt-16 text-center">
           <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-8">Síguenos en Redes Sociales</h3>
           <div className="flex justify-center space-x-6">
-            <a href="#" className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300">
+            <a href="https://www.facebook.com/profile.php?id=61576719756268" target="_blank" rel="noopener noreferrer" aria-label="Facebook PRESTAMOS 4K" className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300">
               <i className="fab fa-facebook-f"></i>
             </a>
-            <a href="#" className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300">
+            <a href="https://instagram.com/prestamos4k" target="_blank" rel="noopener noreferrer" aria-label="Instagram PRESTAMOS 4K" className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300">
               <i className="fab fa-instagram"></i>
             </a>
-          </div> */}
-        {/* </div> */}
+          </div>
+        </div>
       </div>
     </section>
   );
 };
 
-export default ContactSection; 
+export default ContactSection;

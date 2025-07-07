@@ -139,7 +139,12 @@ const Footer = () => {
               © 2025 4K Préstamos. Todos los derechos reservados.
             </p>
             <div className="flex space-x-8 mt-4 md:mt-0">
-              {/* These links are now handled by accordions */}
+              <a href="https://www.facebook.com/profile.php?id=61576719756268" target="_blank" rel="noopener noreferrer" aria-label="Facebook PRESTAMOS 4K" className="text-primary hover:text-accent text-2xl transition-colors duration-300">
+                <i className="fab fa-facebook-f"></i>
+              </a>
+              <a href="https://instagram.com/prestamos4k" target="_blank" rel="noopener noreferrer" aria-label="Instagram PRESTAMOS 4K" className="text-primary hover:text-accent text-2xl transition-colors duration-300">
+                <i className="fab fa-instagram"></i>
+              </a>
             </div>
           </div>
         </div>
@@ -148,4 +153,4 @@ const Footer = () => {
   );
 };
 
-export default Footer; 
+export default Footer;
