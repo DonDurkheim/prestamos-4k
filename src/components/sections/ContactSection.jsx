@@ -32,7 +32,7 @@ const ContactSection = () => {
             </div>
             <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Horario</h3>
             <p className="text-gray-600 dark:text-gray-300">Lunes a Viernes</p>
-            <p className="text-gray-600 dark:text-gray-300">11:00 AM - 6:00 PM</p>
+            <p className="text-gray-600 dark:text-gray-300">12:00 PM - 6:00 PM</p>
             {/* <p className="text-gray-600 dark:text-gray-300 mt-2">Sábados</p>
             <p className="text-gray-600 dark:text-gray-300">11:00 AM - 3:00 PM</p> */}
           </div>
